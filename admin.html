@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03130e">
+  <title>Admin Dashboard | DBO Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="DBO Properties home">
+      <span class="brand-text">DBO <span>PROPERTIES</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">View Website</a>
+    </nav>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-panel reveal" id="login-container" aria-labelledby="login-title">
+      <p class="eyebrow">Secure access</p>
+      <h1 id="login-title">Admin Login</h1>
+      <p>Sign in to manage DBO Properties listings.</p>
+      <form id="login-form" class="admin-form" autocomplete="on">
+        <label for="admin-username">Username or email
+          <input id="admin-username" name="username" type="text" autocomplete="username" required>
+        </label>
+        <label for="admin-password">Password
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button id="login-button" type="submit">Sign in</button>
+        <p id="login-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="admin-panel reveal" id="dashboard-container" hidden aria-labelledby="dashboard-title">
+      <div class="admin-toolbar">
+        <div>
+          <p class="eyebrow">Property management</p>
+          <h1 id="dashboard-title">Admin Dashboard</h1>
+          <p>Add new properties and manage existing listings.</p>
+        </div>
+        <button id="logout-button" type="button">Log out</button>
+      </div>
+
+      <h2>Add a Property</h2>
+      <form id="property-form" class="admin-form" enctype="multipart/form-data">
+        <label for="title">Property title
+          <input id="title" name="title" type="text" required maxlength="180">
+        </label>
+        <label for="location">Location
+          <input id="location" name="location" type="text" required maxlength="240">
+        </label>
+        <label for="price">Price
+          <input id="price" name="price" type="text" required maxlength="100" placeholder="e.g. ₦95M or Contact us">
+        </label>
+        <label for="type">Property type
+          <input id="type" name="type" type="text" required maxlength="120" placeholder="e.g. Duplex for Sale">
+        </label>
+        <label for="description">Description
+          <textarea id="description" name="description" rows="5" required maxlength="5000"></textarea>
+        </label>
+        <label for="media-upload">Property photos or videos (optional)
+          <input id="media-upload" name="media" type="file" accept="image/*,video/*" multiple>
+        </label>
+        <button id="property-submit-button" type="submit">Add Property</button>
+        <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="listings" class="section reveal" hidden aria-labelledby="listings-title">
+      <div class="section-heading">
+        <p class="eyebrow">Your inventory</p>
+        <h2 id="listings-title">Manage Listings</h2>
+        <p>Review the properties currently returned by the backend.</p>
+      </div>
+      <div id="admin-property-list" class="admin-property-list">
+        <p class="empty-state">Loading properties…</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
